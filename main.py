@@ -18,6 +18,7 @@ origins = [
     "https://localhost.tiangolo.com",
     "http://localhost",
     "http://localhost:8080",
+    "http://localhost:8081"
     "https://stocpoolt-cajero-frontend.herokuapp.com"
 ]
 
@@ -26,6 +27,7 @@ api.add_middleware(
     allow_credentials=True, allow_methods=["*"], allow_headers=["*"],
 )
 
+# Funcionalidad auth_user (Post)
 @api.post("/user/auth/")
 async def auth_user(user_in: UserIn):
 
@@ -39,7 +41,7 @@ async def auth_user(user_in: UserIn):
 
     return  {"Autenticado": True}
 
-
+# Funcionalidad get_balance (Get)
 @api.get("/user/balance/{username}")
 async def get_balance(username: str):
 
@@ -52,7 +54,7 @@ async def get_balance(username: str):
 
     return  user_out
 
-
+# Funcionalidad make_transaction (Put)
 @api.put("/user/transaction/")
 async def make_transaction(transaction_in: TransactionIn):
 
