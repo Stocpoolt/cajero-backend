@@ -66,5 +66,19 @@ Instalación de CLI:
 • (En la raiz del proyecto)
 	vue init webpack cajero-frontend
 
+		Project Name: carejo-frontend
+		Project Descripción: una breve descripción
+		Author: stocpoolt
+		Vue Build: Runtime + Compiler
+		Install vue-router? (Y/n): n
+		Use ESLint to lint your code? (Y/n): n
+		Set up unit test (Y/n): n
+		Setup e2e tests with Nightwatch? (Y/n): n
+		Should we run…: Yes, use NPM
+
+• Entrar al nuevo folder (cajero-frontend) y ejecutar:
+	npm run start
+• Dirigirse a la URI http://localhost:808X (Cambiar la "X" por el digito del puerto indicado)
+
 # •••
 # Continúa en el README del frontend
