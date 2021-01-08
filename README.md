@@ -1,7 +1,10 @@
 # @Stocpoolt
 
-# ------------------------------------
 # cajero-backend
+# cajero-frontend
+Contiene indicaciones de cómo se elaboró paso a paso.
+
+# ------------------------------------
 
 # 1.
 pip install fastapi
@@ -80,5 +83,163 @@ Instalación de CLI:
 	npm run start
 • Dirigirse a la URI http://localhost:808X (Cambiar la "X" por el digito del puerto indicado)
 
-# •••
-# Continúa en el README del frontend
+# 6.
+-cajero-frontend
+    -src
+        -components
+• Eliminar el archivo HelloWorld.vue
+• Editar el archivo App.vue
+
+# 7.
+• Ejecutar los siguientes comandos en la raíz del proyecto:
+    npm install --save axios
+    npm install --save vue-router
+
+# 8.
+• En la carpeta src, al mismo nivel de App.vue, crear:
+    -src
+        router.js
+
+• En carpeta components construir y modificar archivo User.vue y UserBalance.vue:
+    -components
+        User.vue
+        UserBalance.vue
+
+• Modificar archivo App.vue:
+    -src
+        App.vue
+        
+# 9.
+Para correr la app localmente
+# --- AL MISMO TIEMPO ---
+    • En la raíz del proyecto de FastAPI (backend):
+        uvicorn main:api --reload
+    • En la raíz del proyecto de Vue (frontend):
+        npm run start
+# -----------------------
+
+# 10.
+• En la raíz del frontend, crear y modificar archivo server.js:
+    -cajero-frontend
+        server.js
+• Modificar archivo package.json:
+
+# 11.
+• Ejecutar el siguiente comando (instalación de servidor Express):
+        npm install express serve-static --save
+• En la raíz del proyecto, crear un directorio llamado dist:
+    -cajero-frontend
+        -dist
+• Ejecutar en el frontend:
+    npm run build
+• Como verificaión previa, desplegar el componente localmente:
+    node server.js
+• Subir los cambios al repositorio de GitHub.
+
+# 12.
+• Crear nueva aplicación en Heroku (cajero-frontend) y conectar el repo de GitHub
+
+# 13.
+# En backend
+• Añadir URI del componente desplegado en Heroku,
+    -cajero-backend
+        main.py
+            origins = [
+                "...",
+                "...",
+                "https://stocpoolt-cajero-frontend.herokuapp.com"
+            ]
+# 14.
+# En frontend
+• Modificar las URIs, apuntar la dirección del componente lógico desplegado en Heroku:
+    -cajero-frontend
+        -src
+            -components
+                UserBalance.vue
+                    axios.get("https://stocpoolt-cajero-backend.herokuapp.com/user/balance/" + this.username)
+
+# 15.
+• Actualizar repositorios
+• Actualizar los componentes desplegados en Heroku
+• Abrir la app desde Heroku
+
+# 16.
+# --------------------------------
+
+# Postgres
+Es un gestor de base de datos relacionales «opensource», que ha sido usado por mas de 20 años en aplicaciones web, móviles y de análisis.
+
+1. 
+# Instalación de PostgreSQL
+
+#   Windows:
+        https://www.postgresqltutorial.com/install-postgresql/
+#   MacOS:
+        https://www.postgresqltutorial.com/install-postgresqlmacos/
+        (omitir sección Load the Sample Database)
+#   Linux:
+        https://www.postgresqltutorial.com/install-postgresql-linux/
+        (omitir sección Load the Sample Database)
+
+En el proceso de instalación es importante tener en cuenta:
+    • La contraseña ingresada.
+    • El puerto asignado.
+
+En Linux, a los datos de contraseña y puerto se le asignan valores por defecto:
+Para modificar la contraseña se usan los siguientes comandos:
+    you_user:$ sudo –u postgres psql postgres
+    postgres=# \password postgres
+
+El puerto por defecto es el 5432
+
+2. 
+# pgAdmin
+En Linux se debe instalar por aparte:
+    https://www.pgadmin.org/download/pgadmin-4-apt/
+
+3. 
+# Crear Base de Datos
+    MISION-TIC
+        Squema: cajerodb (Vacio)
+        Squema: Ciclo-lll
+            Table: usuario
+
+4. Para ejecutar una query en pgAdmin hacer clic derecho sobre la tabla y seleccionar la herramienta Query Tool y ejecutar el código párrafo a la vez:
+    
+    4. 1. Insertar un usuario
+        INSERT INTO "Ciclo-lll"."Usuario"(id, username, balance)
+        VALUES (1, 'Jeisson2020', 9018100);
+
+    4. 2. Modificar el saldo
+        UPDATE "Ciclo-lll"."Usuario"
+        SET username='Jeisson2021', balance=12050000
+        WHERE id=1;
+
+    4. 3. Consultar usuarios
+        SELECT id, username, balance
+        FROM "Ciclo-lll"."Usuario";
+
+    4. 4. Eliminar usuario
+        DELETE FROM "Ciclo-lll"."Usuario"
+        WHERE id=1;
+
+# --------------------------------
+••• Diapo 16 •••
+
+# Postgres, instalación e integración
+Seguir alguna de las siguientes guías de acuerdo a tu sistema
+operativo:
+
+Windows: https://www.postgresqltutorial.com/install-postgresql/
+MacOS:   https://www.postgresqltutorial.com/install-postgresqlmacos/
+		 (omitir sección Load the Sample Database)
+Linux:   https://www.postgresqltutorial.com/install-postgresql-linux/
+		 (omitir sección Load the Sample Database)
+
+# pgAdmin
+En Windows y MacOS se instala por defecto, en Linux se debe instalar por aparte:
+	https://www.pgadmin.org/download/pgadmin-4-apt/
+
+• Crear base de datos: MISION-TIC
+• Crear tabla: Usuario
+• Crear esquema: Ciclo-lll; cajerodb
