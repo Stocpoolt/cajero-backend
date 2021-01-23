@@ -1,13 +1,9 @@
 from typing import List
-
 from fastapi import Depends, APIRouter, HTTPException
 from sqlalchemy.orm import Session
-
-from db.db_conection import get_db
-
+from db.db_connection import get_db
 from db.user_db import UserInDB
 from db.transaction_db import TransactionInDB
-
 from models.user_models import UserIn, UserOut
 from models.transaction_models import TransactionIn, TransactionOut
 
