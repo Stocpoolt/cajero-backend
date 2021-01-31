@@ -10,10 +10,7 @@ Contiene indicaciones de cómo se elaboró paso a paso.
 pip install fastapi
 pip install uvicorn
 pip install pydantic
-pip install fastapi
-pip install uvicorn
 pip install SQLAlchemy
-pip install pydantic
 pip install psycopg2
 
 Instalar cualquier otro paquete en caso de ser requerido.
