@@ -14,7 +14,6 @@ class ReservaInDB(BaseModel):
     num_adults: int
     tipo_acomodacion: str
 
-
 database_users = Dict[str,ReservaInDB]
 
 database_users = {

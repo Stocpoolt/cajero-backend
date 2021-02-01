@@ -18,7 +18,7 @@ origins = [
     "http://localhost",
     "http://localhost:8080",
     "http://localhost:8081",
-    "https://hotel-api-g5.herokuapp.com/"
+    "https://stocpoolt-hotel-backend.herokuapp.com/"
 ]
 api.add_middleware(
 CORSMiddleware, allow_origins=origins,
